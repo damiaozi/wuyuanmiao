@@ -47,7 +47,7 @@ HTTP使用TCP三次握手建立连接，客户端和服务器需要交换3个包
 5、TCP 的三次握手和四次挥手
 -------
 TCP报文格式图：<br/>
-![github](https://github.com/damiaozi/wuyuanmiao/img/tcp.png)
+![github](https://github.com/damiaozi/wuyuanmiao/blob/master/img/tcp.png)
 （1）序号：Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，发起方发送数据时对此进行标记。<br/>
 （2）确认序号：Ack序号，占32位，只有ACK标志位为1时，确认序号字段才有效，Ack=Seq+1。<br/>
 （3）标志位：共6个，即URG、ACK、PSH、RST、SYN、FIN等，具体含义如下：<br/>
@@ -60,13 +60,13 @@ TCP报文格式图：<br/>
 
 ### 为什么需要“三次握手”（客户端和服务端总共发送3个包以确认连接的建立）：
 为了防止已失效的连接请求报文段突然又传送到了服务端，防止server端一直等待，浪费资源。<br/>
-![github](https://github.com/damiaozi/wuyuanmiao/img/handshake.png)
+![github](https://github.com/damiaozi/wuyuanmiao/blob/master/img/handshake.png)
 （1）第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。<br/>
 （2）第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack (number )=J+1，随机产生一个值seq=K，并将该数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态。<br/>
 （3）第三次握手：Client收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。<br/>
 
 ### 为什么需要“四次挥手”：
-![github](https://github.com/damiaozi/wuyuanmiao/img/handshake4.png)
+![github](https://github.com/damiaozi/wuyuanmiao/blob/master/img/handshake4.png)
 由于TCP连接是全双工的，因此，每个方向都必须要单独进行关闭，这一原则是当一方完成数据发送任务后，发送一个FIN来终止这一方向的连接，收到一个FIN只是意味着这一方向上没有数据流动了，即不会再收到数据了，但是在这个TCP连接上仍然能够发送数据，直到这一方向也发送了FIN。首先进行关闭的一方将执行主动关闭，而另一方则执行被动关闭。<br/>
 （1）第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。<br/>
 （2）第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。<br/>
