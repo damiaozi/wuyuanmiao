@@ -7,10 +7,10 @@
 
 前端技术知识点总结。
 
-1、[前端知识点整理之HTML](https://github.com/damiaozi/wuyuanmiao/html.md)<br/>
-2、[前端知识点整理之CSS](https://github.com/damiaozi/wuyuanmiao/css.md)<br/>
-3、[前端知识点整理之Javascript](https://github.com/damiaozi/wuyuanmiao/javascript.md)<br/>
-4、[前端知识点整理之计算机基础知识](https://github.com/damiaozi/wuyuanmiao/basic.md)<br/>
+1、[前端知识点整理之HTML](https://github.com/damiaozi/wuyuanmiao/blob/master/html.md)<br/>
+2、[前端知识点整理之CSS](https://github.com/damiaozi/wuyuanmiao/blob/master/css.md)<br/>
+3、[前端知识点整理之Javascript](https://github.com/damiaozi/wuyuanmiao/blob/master/javascript.md)<br/>
+4、[前端知识点整理之计算机基础知识](https://github.com/damiaozi/wuyuanmiao/blob/master/basic.md)<br/>
 正在更新。。。。 
 
 
